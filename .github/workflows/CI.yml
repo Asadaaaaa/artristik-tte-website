@@ -1,4 +1,4 @@
-name: Sersow Web CI
+name: TTE Frontend Website - CI
 
 on:
   push:
