@@ -15,14 +15,14 @@ export default function FileIdentity({ setData }) {
 
     setWarningText("");
 
-    if (file.type !== "image/jpeg" && file.type !== "image/jpg") {
-      setWarningText("Jenis file harus jpg/jpeg!");
+    if (file.type !== "image/jpeg" && file.type !== "image/jpg" && file.type !== "image/png") {
+      setWarningText("Jenis file harus jpg/jpeg/png");
       
       return;
     }
 
-    if (file.size > 2097152) {
-      setWarningText("Ukuran file maks. 2MB");
+    if (file.size > 5242880) {
+      setWarningText("Ukuran file maks. 5MB");
       
       return;
     }
@@ -79,7 +79,7 @@ export default function FileIdentity({ setData }) {
       </div>
       <input 
         type="file"
-        accept="image/jpeg,image/jpg"
+        accept="image/jpeg,image/jpg,image/png"
         className="hidden"
         ref={inputFileRef}
         onChange={async(e) => {
