@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 import Terms from '@/components/register/page/Terms';
+import Selfie from '@/components/register/page/Selfie';
 import Country from '@/components/register/page/Country';
 import Identity from '@/components/register/page/Identity';
 import Personal from '@/components/register/page/Personal';
@@ -18,7 +19,8 @@ export default function Main({ countryMasterdata }) {
     birthdate: "",
     email: "",
     phone_number: "",
-  })
+  });
+  const [dataSelfie, setDataSelfie] = useState(null);
 
   return (
     <div className="bg-sky-500 flex justify-center items-center py-20 min-h-screen">
@@ -51,9 +53,17 @@ export default function Main({ countryMasterdata }) {
       {
         step === "2" && (
           <Personal
-            next={() => setStep("3")}
             dataPersonal={dataPersonal}
             setDataPersonal={setDataPersonal}
+            next={() => setStep("3")}
+          />
+        )
+      }
+      {
+        step === "3" && (
+          <Selfie
+            setDataSelfie={setDataSelfie}
+            next={() => setStep("4")}
           />
         )
       }
