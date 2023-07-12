@@ -94,48 +94,50 @@ export default function Personal({ dataPersonal, setDataPersonal, next }) {
             }}
           />
         </div>
-        <Button
-          text={"Lanjut"}
-          onClick={() => {
-            if (dataPersonal.id.length !== 16 || !dataPattern.id.test(dataPersonal.id)) {
-              setErrorText({ ...errorText, id: "NIK Tidak Valid"});
+        <div className="flex justify-center">
+          <Button
+            text={"Lanjut"}
+            onClick={() => {
+              if (dataPersonal.id.length !== 16 || !dataPattern.id.test(dataPersonal.id)) {
+                setErrorText({ ...errorText, id: "NIK Tidak Valid"});
 
-              return;
-            }
+                return;
+              }
 
-            if (dataPersonal.name.length < 2) {
-              setErrorText({ ...errorText, name: "Panjang Minimum Input 2 Karakter"});
+              if (dataPersonal.name.length < 2) {
+                setErrorText({ ...errorText, name: "Panjang Minimum Input 2 Karakter"});
 
-              return;
-            }
+                return;
+              }
 
-            if (!dataPattern.name.test(dataPersonal.name)) {
-              setErrorText({ ...errorText, name: "Input hanya terdiri dari karakter alfabet, dengan kata-kata yang dipisahkan oleh satu spasi dan tidak ada spasi yang berurutan"})
+              if (!dataPattern.name.test(dataPersonal.name)) {
+                setErrorText({ ...errorText, name: "Input hanya terdiri dari karakter alfabet, dengan kata-kata yang dipisahkan oleh satu spasi dan tidak ada spasi yang berurutan"})
 
-              return;
-            }
+                return;
+              }
 
-            if (dataPersonal.birthdate.length !== 10 || !dataPattern.birthdate.test(dataPersonal.birthdate)) {
-              setErrorText({ ...errorText, birthdate: "Tanggal Tidak Valid"});
+              if (dataPersonal.birthdate.length !== 10 || !dataPattern.birthdate.test(dataPersonal.birthdate)) {
+                setErrorText({ ...errorText, birthdate: "Tanggal Tidak Valid"});
 
-              return;
-            }
+                return;
+              }
 
-            if (dataPersonal.email.length < 5 || !dataPattern.email.test(dataPersonal.email)) {
-              setErrorText({ ...errorText, email: "Email Tidak Valid"});
+              if (dataPersonal.email.length < 5 || !dataPattern.email.test(dataPersonal.email)) {
+                setErrorText({ ...errorText, email: "Email Tidak Valid"});
 
-              return;
-            }
+                return;
+              }
 
-            if (dataPersonal.phone_number.length < 5 || !dataPattern.phone_number.test(dataPersonal.phone_number)) {
-              setErrorText({ ...errorText, phone_number: "No Telepon Tidak Valid"});
+              if (dataPersonal.phone_number.length < 5 || !dataPattern.phone_number.test(dataPersonal.phone_number)) {
+                setErrorText({ ...errorText, phone_number: "No Telepon Tidak Valid"});
 
-              return;
-            }
+                return;
+              }
 
-            next();
-          }}
-        />
+              next();
+            }}
+          />
+        </div>
       </div>
     </Card>
   );
