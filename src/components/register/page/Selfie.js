@@ -68,39 +68,37 @@ export default function Selfie({ setDataSelfie, next }) {
 
   return (
     <Card>
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-2">
-          <CardTitle title={"Ambil Swafoto"} />
-          <CardSubtitle subtitle={"Mohon aktifkan kamera di aplikasi web dan klik Izinkan untuk mengambil swafoto."} />
-        </div>
-        <hr />
-        {
-          errorText && (
-            <h3 className="text-center text-red-500 font-semibold">{errorText}</h3>
-          )
-        }
-        <video ref={videoRef} className={status === "video" ? "block" : "hidden"} />
-        <div className={"flex justify-center " + (status === "video" ? "block" : "hidden")}>
-          <Button
-            text={"Ambil Foto"}
-            onClick={() => {
-              paintToCanvas();
-              stopVideo();
-              setStatus("image");
-            }}
-          />
-        </div>
-        <canvas ref={photoRef} className={status === "image" ? "block" : "hidden"} />
-        <div className={"flex justify-center gap-6 " + (status === "image" ? "block" : "hidden")}>
-          <Button
-            text={"Ambil Ulang Foto"}
-            onClick={() => getVideo()}
-          />
-          <Button
-            text={"Gunakan Foto"}
-            onClick={() => usePhoto()}
-          />
-        </div>
+      <div className="flex flex-col gap-2">
+        <CardTitle title={"Ambil Swafoto"} />
+        <CardSubtitle subtitle={"Mohon aktifkan kamera di aplikasi web dan klik Izinkan untuk mengambil swafoto."} />
+      </div>
+      <hr />
+      {
+        errorText && (
+          <h3 className="text-center text-red-500 font-semibold">{errorText}</h3>
+        )
+      }
+      <video ref={videoRef} className={status === "video" ? "block" : "hidden"} />
+      <div className={"flex justify-center " + (status === "video" ? "block" : "hidden")}>
+        <Button
+          text={"Ambil Foto"}
+          onClick={() => {
+            paintToCanvas();
+            stopVideo();
+            setStatus("image");
+          }}
+        />
+      </div>
+      <canvas ref={photoRef} className={status === "image" ? "block" : "hidden"} />
+      <div className={"flex justify-center gap-6 " + (status === "image" ? "block" : "hidden")}>
+        <Button
+          text={"Ambil Ulang Foto"}
+          onClick={() => getVideo()}
+        />
+        <Button
+          text={"Gunakan Foto"}
+          onClick={() => usePhoto()}
+        />
       </div>
     </Card>
   );
