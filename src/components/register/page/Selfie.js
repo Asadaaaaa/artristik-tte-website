@@ -46,8 +46,8 @@ export default function Selfie({ setDataSelfie, next }) {
     let photo = photoRef.current;
     let ctx = photo.getContext("2d");
 
-    const width = 320;
-    const height = 240;
+    const width = 480;
+    const height = 360;
     photo.width = width;
     photo.height = height;
 
@@ -58,6 +58,8 @@ export default function Selfie({ setDataSelfie, next }) {
     const photo = photoRef.current.toDataURL("image/jpeg");
 
     setDataSelfie(photo);
+
+    next();
   };
 
   useEffect(() => {
